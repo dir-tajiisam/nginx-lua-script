@@ -1,0 +1,36 @@
+version: "3"
+services:
+  app:
+    container_name: lua-app
+    build: ./app
+    ports:
+      - "5555:5000"
+    networks:
+      - container-link
+
+  nginx:
+    container_name: lua-nginx
+    build:
+      context: ./nginx
+      args:
+        - ENABLED_MODULES=ndk lua
+    ports:
+      - "8888:80"
+    depends_on:
+      - app
+    networks:
+      - container-link
+
+#
+# Networks
+#
+networks:
+  # デフォルトネットワークが生成されないようにする
+  default:
+    external: true
+    name: bridge
+  # コンテナ間通信用ネットワーク
+  container-link:
+    # ネットワーク名
+    external: true
+    name: lua-nginx-container-link
