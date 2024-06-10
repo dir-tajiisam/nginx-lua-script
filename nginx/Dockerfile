@@ -96,7 +96,7 @@ RUN apt-get update -y && apt-get upgrade -y && \
 # RUN unlink /var/log/nginx/access.log && \
 #     unlink /var/log/nginx/error.log 
 
-RUN unlink /var/log/nginx/error.log
+# RUN unlink /var/log/nginx/error.log
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY lua_scripts /etc/nginx/lua_scripts
