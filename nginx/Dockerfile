@@ -98,5 +98,10 @@ RUN unlink /var/log/nginx/access.log && \
 
 # RUN unlink /var/log/nginx/access.log
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY lua_scripts /etc/nginx/lua_scripts
+# COPY nginx.conf /etc/nginx/nginx.conf
+# COPY lua_scripts /etc/nginx/lua_scripts
+
+RUN apt-get install -y locales-all
+ENV LANG ja_JP.UTF-8
+ENV LANGUAGE ja_JP:ja
+ENV LC_ALL ja_JP.UTF-8

@@ -20,6 +20,10 @@ services:
       - app
     networks:
       - container-link
+    volumes:
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/lua_scripts:/etc/nginx/lua_scripts
 
 #
 # Networks
