@@ -14,7 +14,7 @@ def hello_world() -> str:
 def post_data() -> str:
     data = request.get_json()
     print(data)
-    return "Data received!"
+    return f"Data received! {data}"
 
 
 if __name__ == "__main__":
